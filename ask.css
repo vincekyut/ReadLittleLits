@@ -1,0 +1,327 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Container Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0; 
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+/* Column Styling */
+.column {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    flex: 1 1 30%; /* Flexbox properties to make them responsive */
+    min-width: 280px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for columns */
+.column:hover {
+    transform: scale(1.03);
+}
+
+/* Quiz Column */
+.quiz-column {
+    background: #FFF7D1;
+}
+
+.quiz-column h2 {
+    color: #000000;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+.quiz-item {
+    margin-bottom: 20px;
+}
+
+.quiz-button {
+    background: black;
+    color: white;
+    padding: 12px;
+    border: none;   
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.quiz-button:hover {
+    background-color: #161513;
+    transform: scale(1.05);
+    animation: scaleUp 0.3s ease-in-out forwards; /* Apply the scale animation */
+    background-color: #3306fad8; /* Change background color on hover */
+    color: #fff; /* Keep the text color white */
+}
+
+/* Story Column */
+.story-column {
+    background: #FFCFB3;
+}
+
+.story-column h2 {
+    color: #0f1113;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+.story-item {
+    margin-bottom: 20px;
+}
+
+.read-more {
+    background:black;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.read-more:hover {
+    background-color: #0073e6;
+    transform: scale(1.05);
+    animation: scaleUp 0.3s ease-in-out forwards; /* Apply the scale animation */
+    background-color: #3306fad8; /* Change background color on hover */
+    color: #fff; /* Keep the text color white */
+
+}
+
+/* Reading Column */
+.reading-column {
+    background: #B7E0FF;
+}
+
+.reading-column h2 {
+    color: #050505;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+.reading-item {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .column {
+        margin-bottom: 20px;
+        flex: 1 1 100%;
+    }
+}
+
+/* Additional Styling for Buttons and Text */
+button {
+    font-size: 16px;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Adding some fun background images for columns */
+.quiz-column {
+    background-size: cover;
+    background-position: center;
+}
+  
+
+
+.story-column {
+    
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.reading-column {
+    
+    background-size: cover;
+    background-position: center;
+}
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+    --header-height: 3rem;
+    --font-semi: 600;
+    --first-color: hsl(224, 89%, 60%);
+    --second-color: hsl(224, 56%, 12%);
+    --body-font: "Poppins", sans-serif;
+    --big-font-size: 2rem;
+    --normal-font-size: .938rem;
+    --smaller-font-size: .75rem;
+    --mb-2: 1rem;
+    --mb-4: 2rem;
+    --z-fixed: 100;
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--second-color);
+    background-image: url('path/to/your-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Reset margins and paddings */
+h1, h2, p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*===== HEADER =====*/
+.l-header {
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+    background: linear-gradient(to right, rgba(8, 171, 235, 0.781), rgba(233, 6, 195, 0.733));
+}
+
+.nav {
+    text-align: center;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: var(--font-semi);
+    
+}
+
+.nav__toggle {
+    color: var(--second-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/*===== MAIN =====*/
+.l-main {
+    padding-top: 5rem; /* Add space for fixed header */
+}
+
+/*===== Media Queries for Responsive Design =====*/
+@media screen and (min-width: 768px) {
+    .nav {
+        text-align: center;  /* This centers the text horizontally */
+        height: calc(var(--header-height) + 1.5rem);
+        display: flex;
+        justify-content: center;  /* This centers content horizontally */
+        align-items: center;  /* This centers content vertically */
+        font-weight: var(--font-semi);
+    }
+    
+    /* Update to .nav__logo to center the logo text */
+    .nav__logo {
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+        font-family: 'Baloo Tamma 2', cursive;
+        /* Optional: Adjust the font size as needed */
+        font-weight: 700;
+    }
+}
+
+body {
+    background-image: url('bk1.jpg');
+    background-size: cover;  /* Make sure the image covers the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    height: 100vh; /* Ensure it covers the full height of the viewport */
+    margin: 0; /* Remove default body margin */
+  }
+  
+  .back-top-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #133ae9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.back-top-button:hover {
+    background-color: #05d9ff;
+}

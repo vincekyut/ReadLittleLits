@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="container">
+        <div class="form-container">
+            <div class="tabs">
+                <button class="tab-button active" id="login-tab">Login</button>
+                <button class="tab-button" id="signup-tab">Sign Up</button>
+                <button class="tab-button" id="guest-tab">Guest</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form" class="form active">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <a class="submit-button" id="guest-button" href="index.html">Log In</a>
+                <div class="forgot-password">
+                <a href="forgot-password.html" class="forgot-password-link">Forgot password?</a>
+                </div>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signup-form" class="form">
+                <h2>Sign Up</h2>
+                <input type="text" id="signup-name" placeholder="Full Name" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit" class="submit-button">Sign Up</button>
+            </form>
+
+            <!-- Guest Form -->
+            <div id="guest-form" class="form">
+                <h2>Continue as Guest</h2>
+                <a class="submit-button" id="guest-button" href="guest.html">Continue as Guest</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Shape Quiz for Kids</title>
+    <link rel="stylesheet" href="quiz.shape.css">
+</head>
+<body>
+    <button class="back-top-button" onclick="document.location='ask.html'">Back</button>
+    <div class="quiz-container">
+        <h1>Enhanced Shape Quiz</h1>
+        <div id="question-container" class="hide">
+            <img id="animal-image" src="" alt="Shape Image">
+            <p id="question"></p>
+        </div>
+        <div id="answer-buttons" class="btn-grid hide">
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+        </div>
+        <div id="progress-container" class="hide">
+            <div id="progress-bar"></div>
+            <p id="progress-text"></p>
+        </div>
+        <p id="score" class="hide">Score: <span id="score-value">0</span></p>
+        <div id="result-container" class="hide">
+            <h2>Quiz Completed!</h2>
+            <p id="final-score"></p>
+            <div id="all-scores"></div>
+            <p>Do you want to try again?</p>
+            <button id="try-again-btn" class="btn">Yes, Try Again</button>
+            <button id="exit-btn" class="btn">No, Exit</button>
+        </div>
+    </div>
+    <script src="quiz.shape.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    width: 33%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.tab-button.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+body{
+  background-color: #ffffff;
+}
+
+
+/* General styling for the anchor tag to make it look like a button */
+a {
+    display: inline-block;
+    width: 100%; /* Makes it take full width of its container */
+    padding: 10px;
+    background-color: #007BFF; /* Button blue color */
+    color: white; /* White text */
+    text-align: center; /* Center the text */
+    font-size: 16px; /* Text size */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove default underline and borders */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    text-decoration: none; /* Remove underline from the link */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add a smooth hover effect */
+}
+
+/* Hover effect to change background color */
+a:hover {
+    background-color: #0056b3; /* Darker blue for hover */
+    transform: translateY(-2px); /* Slight raise effect on hover */
+}
+
+/* Focus effect for accessibility (when clicked/focused) */
+a:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add custom focus outline */
+}
+
+/* Active state (when clicked) */
+a:active {
+    background-color: #003c8f; /* Even darker blue when clicked */
+    transform: translateY(0); /* Remove the hover raise effect */
+}
+body {
+    background-image: url('bk1.jpg');
+    background-size: cover;  /* Make sure the image covers the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    height: 100vh; /* Ensure it covers the full height of the viewport */
+    margin: 0; /* Remove default body margin */
+  }
+
+  .logo {
+    position: absolute; /* Position it absolutely relative to the body */
+    top: 20px; /* 20px from the top */
+    left: 20px; /* 20px from the left */
+    width: 100px; /* Adjust the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 10; /* Make sure the logo is above other content */
+}
+/* Styling for Forgot Password link */
+.forgot-password {
+    text-align: center;
+    margin-top: 10px; /* Space between the password input and the link */
+}
+
+.forgot-password-link {
+    color: #1b1a1a; /* Blue color similar to the other buttons */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #fafafa;
+}
+
+.forgot-password-link:hover {
+    color: #ffffff; /* Darker blue on hover */
+    text-decoration: underline; /* Add underline on hover for better UX */
+}
+
+.forgot-password-link:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Custom focus effect */
+}

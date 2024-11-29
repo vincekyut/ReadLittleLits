@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose a Story</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            transition: background-color 0.5s ease;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 32px;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .story-button:hover {
+            background-color: #45a049;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+
+        .story-content {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .story-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .story-text {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .back-button, .quiz-button {
+            background-color: #133ae9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover, .quiz-button:hover {
+            background-color: #05d9ff;
+        }
+
+        .back-top-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #133ae9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-top-button:hover {
+            background-color: #05d9ff;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .quiz-container {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .quiz-question {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quiz-option {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background-color: #e0e0e0;
+        }
+
+        .quiz-option.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .quiz-submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-submit:hover {
+            background-color: #45a049;
+        }
+
+        .quiz-result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="selection-page" class="page">
+        <header>
+            <button class="back-top-button" onclick="goBack();">Back</button>
+            Choose a Story to Read!
+        </header>
+
+        <div class="container">
+            <button class="story-button" onclick="showStory('story1')">The Little Red Hen</button>
+            <button class="story-button" onclick="showStory('story2')">The Lion and the Mouse</button>
+            <button class="story-button" onclick="showStory('story3')">The Tortoise and the Hare</button>
+            <button class="story-button" onclick="showStory('story4')">The Boy Who Cried Wolf</button>
+            <button class="story-button" onclick="showStory('story5')">Goldilocks and the Three Bears</button>
+            <button class="story-button" onclick="showStory('story6')">The Ugly Duckling</button>
+            <button class="story-button" onclick="showStory('story7')">Jack and the Beanstalk</button>
+            <button class="story-button" onclick="showStory('story8')">The Ant and the Grasshopper</button>
+            <button class="story-button" onclick="showStory('story9')">Cinderella</button>
+            <button class="story-button" onclick="showStory('story10')">The Little Engine That Could</button>
+        </div>
+    </div>
+
+    <div id="story-page" class="page hidden">
+        <header>
+            <div id="story-header"></div>
+        </header>
+
+        <div id="story-content" class="story-content">
+            <div id="story-title" class="story-title"></div>
+            <div id="story-text" class="story-text"></div>
+        </div>
+
+        <button class="quiz-button" onclick="startQuiz()">Start Quiz</button>
+        <button class="back-button" onclick="showSelectionPage()">Back to Stories</button>
+    </div>
+
+    <div id="quiz-page" class="page hidden">
+        <header>
+            <div id="quiz-header"></div>
+        </header>
+
+        <div class="quiz-container">
+            <div class="progress-bar">
+                <div id="quiz-progress" class="progress"></div>
+            </div>
+            <div id="quiz-question" class="quiz-question"></div>
+            <div id="quiz-options" class="quiz-options"></div>
+            <button id="quiz-submit" class="quiz-submit" onclick="submitAnswer()">Submit Answer</button>
+            <div id="quiz-result" class="quiz-result"></div>
+        </div>
+
+        <button class="back-button" onclick="showStoryPage()">Back to Story</button>
+    </div>
+
+    <script>
+        const stories = {
+            story1: {
+                title: "The Little Red Hen",
+                text: "Once upon a time, there was a little red hen who found a seed. She asked her friends, \"Who will help me plant the seed?\" \"Not I,\" said the dog. \"Not I,\" said the cat. \"Not I,\" said the pig. So the little red hen planted the seed all by herself. As the plant grew, she asked again, \"Who will help me harvest the wheat?\" Again, no one helped. She harvested the wheat, made flour, and baked bread. When the bread was ready, everyone wanted to eat it. But the little red hen said, \"I did all the work, so I will eat the bread.\"",
+                questions: [
+                    {
+                        /*1*/
+                        question: "What did the little red hen find?",
+                        options: ["A coin", "A seed", "A worm", "A toy"],
+                        correctAnswer: 1
+                    },
+                    {
+                        /*2*/
+                        question: "Who helped the little red hen plant the seed?",
+                        options: ["The dog", "The cat", "The pig", "No one"],
+                        correctAnswer: 3
+                    },
+                    {
+                        /*3*/
+                        question: "What did the little red hen make from the wheat?",
+                        options: ["Cake", "Cookies", "Bread", "Pasta"],
+                        correctAnswer: 2
+                    },
+                    {
+                        /*4*/
+                        question: "What is the main lesson of this story?",
+                        options: ["Always help others", "Don't be lazy", "Share your food", "Hard work pays off"],
+                        correctAnswer: 3
+                    },
+                    {
+                        /*5*/
+                        question: "How many animals refused to help the little red hen?",
+                        options: ["One", "Two", "Three", "Four"],
+                        correctAnswer: 2
+                    },
+                    {
+                        /*6*/
+                        question: "What was the first task the little red hen needed help with?",
+                        options: ["Planting the seed", "Harvesting the wheat", "Making flour", "Baking bread"],
+                        correctAnswer: 0
+                    },
+                    {
+                        /*7*/
+                        question: "How did the other animals react when the bread was ready?",
+                        options: ["They were not interested", "They wanted to eat it", "They felt sorry", "They offered to help"],
+                        correctAnswer: 1
+                    },
+                    {
+                        /*8*/
+                        question: "What did the little red hen do with the bread in the end?",
+                        options: ["Shared it with everyone", "Ate it herself", "Gave it to the animals", "Sold it"],
+                        correctAnswer: 1
+                    },
+                    {
+                        /*9*/
+                        question: "Which of these is NOT mentioned in the story?",
+                        options: ["Dog", "Cat", "Pig", "Mouse"],
+                        correctAnswer: 3
+                    },
+                    {
+                        /*10*/
+                        question: "What kind of character is the little red hen?",
+                        options: ["Lazy", "Selfish", "Hardworking", "Mean"],
+                        correctAnswer: 2
+                    }
+                ]
+            },
+            story2: { /*Story 2*/
+                title: "The Lion and the Mouse",
+                text: "A lion once caught a mouse. The mouse begged the lion, \"Please let me go, and I will help you someday.\" The lion laughed but set the mouse free. Later, the lion was caught in a hunter's net. The mouse heard the lion's roar and chewed through the ropes, setting the lion free. \"Thank you, little mouse,\" said the lion. The mouse had kept her promise",
+                questions: [
+                    {
+                        /*1*/
+                        question: "Who catches the mouse in the story?",
+                        options: ["A hunter", "A lion", "A tiger", "A fox"],
+                        correctAnswer: 1
+                    },
+                    {
+                        /*2*/
+                        question: "What does the mouse ask the lion for?",
+                        options: ["A place to sleep", "To be set free", "Food to eat", "Protection from other animals"],
+                        correctAnswer: 1
+                    },
+                    {
+                        /*3*/
+                        question: "What reason does the mouse give for wanting to be set free??",
+                        options: ["I will repay you someday.", "I am too small to be caught.", "I promise to never return.", "I am hungry and need help."],
+                        correctAnswer: 2
+                    },
+                    {
+                        /*4*/
+                        question: "How does the lion initially react to the mouse’s request?",
+                        options: ["He agrees immediately", "He laughs at the mouse’s request.", "He becomes angry.", "He ignores the mouse."],
+                        correctAnswer: 1
+                    },
+                    {
+                        /*5*/
+                        question: "What happens to the lion later in the story?",
+                        options: ["He escapes from the hunter's trap on his own.", "He is caught in a hunter's net.", "He is captured by another animal.", "He is defeated by the mouse."],
+                        correctAnswer: 1
+                    },
+                    {
+                        /*6*/
+                        question: "How does the mouse help the lion?",
+                        options: ["By giving him food", "By scaring the hunters away", "By chewing through the ropes of the net", "By calling other animals for help"],
+                        correctAnswer: 2
+                    },
+                    {
+                        /*7*/
+                        question: "What is the lion's reaction when the mouse frees him from the net?",
+                        options: ["He is angry at the mouse. ", "He thanks the mouse for helping him.","He ignores the mouse.","He tries to eat the mouse."],
+                        correctAnswer: 1
+                    },
+                    {
+                        /*8*/
+                        question: "What is the main moral of the story?",
+                        options: ["Even the smallest creatures can be helpful.","It’s important to be strong.","Never trust animals you don’t know.","Bigger animals should always help smaller ones."],
+                        correctAnswer: 0
+                    },
+                    {
+                        /*9*/
+                        question: "What does the story teach us about kindness?",
+                        options: ["Always be humble, even when you're small.", "Don’t make promises you can’t keep.", "Small acts of kindness can have big impacts.", "Never trust a lion."],
+                        correctAnswer: 1
+                    },
+                    {
+                        /*10*/
+                        question: "Which of the following is a lesson we can learn from the mouse's behavior?",
+                        options: ["Always be humble, even when you're small.", "Don’t make promises you can’t keep.", "Small acts of kindness can have big impacts.", "Never trust a lion"],
+                        correctAnswer: 2
+                    }
+                ]
+            },
+            // Add the remaining 9 stories with their respective questions here
+        };
+
+        let currentStory;
+        let currentQuestionIndex;
+        let score;
+
+        function showStory(storyId) {
+            currentStory = stories[storyId];
+            document.getElementById('story-header').textContent = currentStory.title;
+            document.getElementById('story-title').textContent = currentStory.title;
+            document.getElementById('story-text').textContent = currentStory.text;
+            document.getElementById('selection-page').classList.add('hidden');
+            document.getElementById('story-page').classList.remove('hidden');
+            document.body.style.backgroundColor = getRandomPastelColor();
+        }
+
+        function showSelectionPage() {
+            document.getElementById('story-page').classList.add('hidden');
+            document.getElementById('quiz-page').classList.add('hidden');
+            document.getElementById('selection-page').classList.remove('hidden');
+            document.body.style.backgroundColor = '#f0f8ff';
+        }
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            showQuizQuestion();
+            document.getElementById('story-page').classList.add('hidden');
+            document.getElementById('quiz-page').classList.remove('hidden');
+        }
+
+        function showQuizQuestion() {
+            const question = currentStory.questions[currentQuestionIndex];
+            document.getElementById('quiz-header').textContent = `Quiz: ${currentStory.title}`;
+            document.getElementById('quiz-question').textContent = question.question;
+            const optionsHtml = question.options.map((option, index) => 
+                `<div class="quiz-option" onclick="selectOption(${index})">${option}</div>`
+            ).join('');
+            document.getElementById('quiz-options').innerHTML = optionsHtml;
+            document.getElementById('quiz-submit').disabled = true;
+            document.getElementById('quiz-result').textContent = '';
+            updateProgress();
+        }
+
+        function selectOption(index) {
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[index].classList.add('selected');
+            document.getElementById('quiz-submit').disabled = false;
+        }
+
+        function submitAnswer() {
+            const selectedOption = document.querySelector('.quiz-option.selected');
+            if (!selectedOption) return;
+
+            const selectedIndex = Array.from(selectedOption.parentNode.children).indexOf(selectedOption);
+            const question = currentStory.questions[currentQuestionIndex];
+
+            if (selectedIndex === question.correctAnswer) {
+                score++;
+                document.getElementById('quiz-result').textContent = 'Correct!';
+            } else {
+                document.getElementById('quiz-result').textContent = 'Incorrect. The correct answer was: ' + question.options[question.correctAnswer];
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < currentStory.questions.length) {
+                setTimeout(showQuizQuestion, 2000);
+            } else {
+                setTimeout(() => {
+                    document.getElementById('quiz-question').textContent = `Quiz completed! Your score: ${score}/${currentStory.questions.length}`;
+                    document.getElementById('quiz-options').innerHTML = '';
+                    document.getElementById('quiz-submit').style.display = 'none';
+                    document.getElementById('quiz-result').textContent = '';
+                    updateProgress();
+                }, 2000);
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / currentStory.questions.length) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+        }
+
+        function showStoryPage() {
+            document.getElementById('quiz-page').classList.add('hidden');
+            document.getElementById('story-page').classList.remove('hidden');
+        }
+
+        function getRandomPastelColor() {
+            const hue = Math.floor(Math.random() * 360);
+            return `hsl(${hue}, 100%, 90%)`;
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

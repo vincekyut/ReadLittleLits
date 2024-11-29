@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose a Story</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            transition: background-color 0.5s ease;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 32px;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .story-button:hover {
+            background-color: #45a049;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+
+        .story-content {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .story-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .story-text {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            background-color: #133ae9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #05d9ff;
+        }
+
+        .back-top-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #133ae9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-top-button:hover {
+            background-color: #05d9ff;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- New back button at the top of the story page -->
+    <button class="back-top-button" onclick="goBack();">Back</button>
+    <div id="selection-page" class="page">
+        <header>
+            Choose a Story to Read!
+        </header>
+
+        <div class="container">
+            <button class="story-button" onclick="showStory('story1')">The Little Red Hen</button>
+            <button class="story-button" onclick="showStory('story2')">The Lion and the Mouse</button>
+            <button class="story-button" onclick="showStory('story3')">The Tortoise and the Hare</button>
+            <button class="story-button" onclick="showStory('story4')">The Boy Who Cried Wolf</button>
+            <button class="story-button" onclick="showStory('story5')">Goldilocks and the Three Bears</button>
+            <button class="story-button" onclick="showStory('story6')">The Ugly Duckling</button>
+            <button class="story-button" onclick="showStory('story7')">Jack and the Beanstalk</button>
+            <button class="story-button" onclick="showStory('story8')">The Ant and the Grasshopper</button>
+            <button class="story-button" onclick="showStory('story9')">Cinderella</button>
+            <button class="story-button" onclick="showStory('story10')">The Little Engine That Could</button>
+        </div>
+    </div>
+
+    <div id="story-page" class="page hidden">
+
+        <header>
+            <div id="story-header"></div>
+        </header>
+
+        <div id="story-content" class="story-content">
+            <div id="story-title" class="story-title"></div>
+            <div id="story-text" class="story-text"></div>
+        </div>
+
+        <button class="back-button" onclick="showSelectionPage()">Back to Stories</button>
+    </div>
+
+    <script>
+        const stories = {
+            story1: {
+                title: "The Little Red Hen",
+                text: "Once upon a time, there was a little red hen who found a seed. She asked her friends, \"Who will help me plant the seed?\" \"Not I,\" said the dog. \"Not I,\" said the cat. \"Not I,\" said the pig. So the little red hen planted the seed all by herself. As the plant grew, she asked again, \"Who will help me harvest the wheat?\" Again, no one helped. She harvested the wheat, made flour, and baked bread. When the bread was ready, everyone wanted to eat it. But the little red hen said, \"I did all the work, so I will eat the bread.\""
+            },
+            story2: {
+                title: "The Lion and the Mouse",
+                text: "A lion once caught a mouse. The mouse begged the lion, \"Please let me go, and I will help you someday.\" The lion laughed but set the mouse free. Later, the lion was caught in a hunter's net. The mouse heard the lion's roar and chewed through the ropes, setting the lion free. \"Thank you, little mouse,\" said the lion. The mouse had kept her promise."
+            },
+            story3: {
+                title: "The Tortoise and the Hare",
+                text: "The hare was very fast and always made fun of the tortoise for being slow. One day, the tortoise challenged the hare to a race. The hare accepted and raced off, leaving the tortoise far behind. But the hare got so tired and fell asleep. The tortoise kept going slowly but steadily and won the race. The moral of the story is: Slow and steady wins the race."
+            },
+            story4: {
+                title: "The Boy Who Cried Wolf",
+                text: "There was once a boy who was bored while watching his sheep. He decided to cry out, \"Wolf! Wolf!\" Even though there was no wolf. The villagers rushed to help, but they found no wolf. The boy laughed. Later, when a wolf actually appeared, the boy cried for help, but this time, the villagers didn't believe him. The wolf ate the sheep, and the boy learned a lesson: Never tell lies."
+            },
+            story5: {
+                title: "Goldilocks and the Three Bears",
+                text: "Goldilocks was walking in the woods when she found a house. Inside, there were three bowls of porridge. The first was too hot, the second too cold, and the third just right. She sat in a chair, and tried three beds. The third one was just right. When the bears came home, they found Goldilocks asleep. She woke up and ran away."
+            },
+            story6: {
+                title: "The Ugly Duckling",
+                text: "A little duck was born in a barnyard. He looked different from the other ducklings and was teased for being ugly. But as he grew, he turned into a beautiful swan. The ugly duckling was now the most graceful bird in the pond."
+            },
+            story7: {
+                title: "Jack and the Beanstalk",
+                text: "Jack traded his cow for magic beans. The beans grew into a giant beanstalk that reached into the clouds. Jack climbed up and found a giant's castle. He stole some of the giant's treasure and climbed down the beanstalk. Jack and his mother lived happily ever after with the treasure."
+            },
+            story8: {
+                title: "The Ant and the Grasshopper",
+                text: "The ant worked hard all summer, gathering food for the winter. The grasshopper spent his time singing and dancing. When winter came, the ant had plenty of food, but the grasshopper had nothing. \"It's better to prepare for the future,\" said the ant."
+            },
+            story9: {
+                title: "Cinderella",
+                text: "Cinderella was treated cruelly by her stepmother and stepsisters. But with the help of her fairy godmother, she went to the ball and won the love of a prince. When the clock struck midnight, she had to leave, but the prince found her by the glass slipper she left behind. They lived happily ever after."
+            },
+            story10: {
+                title: "The Little Engine That Could",
+                text: "A little blue engine was asked to pull a big train over a mountain. At first, the engine doubted itself, but it kept saying, \"I think I can, I think I can.\" It worked hard and made it to the top, showing that with determination, anything is possible."
+            }
+        };
+
+        function showStory(storyId) {
+            const story = stories[storyId];
+            document.getElementById('story-header').textContent = story.title;
+            document.getElementById('story-title').textContent = story.title;
+            document.getElementById('story-text').textContent = story.text;
+            document.getElementById('selection-page').classList.add('hidden');
+            document.getElementById('story-page').classList.remove('hidden');
+            document.body.style.backgroundColor = getRandomPastelColor();
+        }
+
+        function showSelectionPage() {
+            document.getElementById('story-page').classList.add('hidden');
+            document.getElementById('selection-page').classList.remove('hidden');
+            document.body.style.backgroundColor = '#f0f8ff';
+        }
+
+        function getRandomPastelColor() {
+            const hue = Math.floor(Math.random() * 360);
+            return `hsl(${hue}, 100%, 90%)`;
+        }
+        function goBack() {
+        window.history.back();
+        }
+        
+
+    </script>
+</body>
+</html>

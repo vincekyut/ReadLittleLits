@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Learning Zone</title>
+    <link rel="stylesheet" href="ask.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <button class="back-top-button" onclick="document.location='index.html'">Back</button>
+                <a href="#" class="nav__logo">Welcome to Reading Activity for Grade 1 to 3</a>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle"></div>
+        </nav>
+    </header>
+    <div class="container">
+        <!-- Sidebar for Quizzes -->
+        <div class="column quiz-column">
+            <h2>Quizzes</h2>
+            <div class="quiz-item">
+                <h3>Quiz 1: Animals</h3>
+                <button onclick="document.location='quiz.animal.html'" class="quiz-button">Start Quiz</button>
+            </div>
+            <div class="quiz-item">
+                <h3>Quiz 2: Shapes</h3>
+                <button onclick="document.location='quiz.shape.html'" class="quiz-button">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Main Content Area for Stories -->
+        <div class="column story-column">
+            <h2>Stories</h2>
+            <div class="story-item">
+                <h3>Story Only</h3>
+                <button onclick="document.location='story.html'"class="read-more">Enter</button>
+            </div>
+            <div class="story-item">
+                <h3>Story and Quiz</h3>
+                <button onclick="document.location='story.quiz.html'"class="read-more">Start</button>
+            </div>
+        </div>
+
+        <!-- Sidebar for Basic Reading -->
+        <div class="column reading-column">
+            <h2>Basic Reading</h2>
+            <div class="reading-item">
+                <h3>Learning Colors</h3>
+                <button onclick="document.location='color.html'"class="read-more">Start</button>
+            </div>
+            <div class="reading-item">
+                <h3>Learning Solar System</h3>
+                <button onclick="document.location='solar.html'"class="read-more">Start</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="ask.js"></script>
+</body>
+</html>
